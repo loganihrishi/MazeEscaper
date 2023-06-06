@@ -14,7 +14,7 @@ public class Player {
 
     // EFFECTS: returns true if the player has reached the end of the Maze
     public boolean hasWon() {
-        return x== maze.getWidth() && y== maze.getHeight();
+        return x== maze.getWidth()-1 && y== maze.getHeight()-1;
     }
 
     // EFFECTS: moves the player to the right, if possible
