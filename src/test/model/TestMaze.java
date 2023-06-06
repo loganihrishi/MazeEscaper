@@ -1,30 +1,30 @@
 package test.model;
 
 import main.Exceptions.IllegalDimensionException;
-import main.model.Game;
+import main.model.Maze;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGame {
-    private Game game1;
+public class TestMaze {
+    private Maze maze1;
 
     @BeforeEach
     public void setUp() throws IllegalDimensionException {
-        this.game1 = new Game(10, 10);
+        this.maze1 = new Maze(10, 10);
     }
 
     @Test
     public void TestConstructor() {
-        assertEquals(10, game1.getWidth());
-        assertEquals(10, game1.getHeight());
+        assertEquals(10, maze1.getWidth());
+        assertEquals(10, maze1.getHeight());
     }
 
     @Test
     public void TestConstructorExpectException() {
         try {
-            new Game(10, 20);
+            new Maze(10, 20);
             fail();
         } catch (IllegalDimensionException e) {
             // all good
@@ -33,9 +33,9 @@ public class TestGame {
 
     @Test
     public void TestConstructorExpectNoException() {
-        Game g = null;
+        Maze g = null;
         try {
-             g=new Game(20, 20);
+             g=new Maze(20, 20);
         } catch (IllegalDimensionException e) {
             fail();
         }
@@ -45,7 +45,7 @@ public class TestGame {
 
     @Test
     public void TestPrintMaze() {
-        assertNotEquals("", game1.printMaze());
+        assertNotEquals("", maze1.printMaze());
     }
 
 

@@ -4,13 +4,13 @@ import main.Exceptions.IllegalDimensionException;
 
 import java.util.Random;
 
-public class Game {
+public class Maze {
     private final int width;
     private final int height;
 
     private boolean [][] maze;
 
-    public Game(int width, int height) throws IllegalDimensionException {
+    public Maze(int width, int height) throws IllegalDimensionException {
         if (width!= height) {
             throw new IllegalDimensionException("The dimensions of the maze are not equal" + "Width=" + width +
                     "Height=" + height);
@@ -107,4 +107,8 @@ public class Game {
         return this.height;
     }
 
+
+    public boolean getPosition(int x, int y) {
+        return maze[x][y];
+    }
 }
