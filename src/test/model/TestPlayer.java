@@ -29,8 +29,8 @@ public class TestPlayer {
     @Test
     public void testToCSV() {
         String result = p.toCSV();
-        boolean expected = result.contains("Maze") &&
-                result.contains("Player") &&
+        boolean expected = !result.contains("Maze") &&
+                !result.contains("Player") &&
                 result.contains("1") &&
                 result.contains("0");
         assertTrue(expected);

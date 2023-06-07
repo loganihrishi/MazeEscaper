@@ -20,6 +20,13 @@ public class Player implements Writable {
         this.y = 0;
     }
 
+    // REQUIRES: a non-null Maze and player's position
+    public Player(Maze maze, int x, int y) {
+        this.maze = maze;
+        this.x=x;
+        this.y=y;
+    }
+
     // EFFECTS: returns true if the player has reached the end of the Maze
     public boolean hasWon() {
         return x== maze.getWidth()-1 && y== maze.getHeight()-1;
@@ -102,19 +109,21 @@ public class Player implements Writable {
     @Override
     public String toCSV() {
         StringBuilder result = new StringBuilder();
-        // Append the maze data to the CSV
-        result.append("Maze,");
+//        // Append the maze data to the CSV
+//        result.append("Maze,");
+//        result.append("\n");
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
                 result.append(maze.getPosition(i, j) ? "1," : "0,");
             }
-            result.append("\n");
         }
         result.append("\n");
         // Append player position data to the CSV
-        result.append("Player,");
+//        result.append("Player,");
+//        result.append("\n");
         result.append(x).append(",").append(y).append("\n");
 
         return result.toString();
     }
+
 }

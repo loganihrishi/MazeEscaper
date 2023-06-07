@@ -28,7 +28,7 @@ public class NewGameGUI extends JFrame implements KeyListener {
 
     private void init() {
         try {
-            this.player = new Player(new Maze(50, 50));
+            this.player = new Player(new Maze(5, 5));
         } catch (IllegalDimensionException e) {
             System.out.println("Dimensions are incorrect");
         }
