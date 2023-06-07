@@ -117,5 +117,4 @@ public class Player implements Writable {
 
         return result.toString();
     }
-
 }
