@@ -50,13 +50,13 @@ public class Maze {
             int newRow = row;
             int newCol = col;
 
-            if (direction == 0 && newRow > 1) {
+            if (direction == 0 && newRow >= 2 && !maze[newRow - 2][newCol]) {
                 newRow -= 2; // Move up
-            } else if (direction == 1 && newCol < width - 2) {
+            } else if (direction == 1 && newCol < width - 2 && !maze[newRow][newCol + 2]) {
                 newCol += 2; // Move right
-            } else if (direction == 2 && newRow < height - 2) {
+            } else if (direction == 2 && newRow < height - 2 && !maze[newRow + 2][newCol]) {
                 newRow += 2; // Move down
-            } else if (direction == 3 && newCol > 1) {
+            } else if (direction == 3 && newCol >= 2 && !maze[newRow][newCol - 2]) {
                 newCol -= 2; // Move left
             }
 
@@ -71,6 +71,7 @@ public class Maze {
             }
         }
     }
+
 
     private void shuffleArray(int[] array) {
         Random random = new Random();
@@ -107,8 +108,8 @@ public class Maze {
         return this.height;
     }
 
-
     public boolean getPosition(int x, int y) {
         return maze[x][y];
     }
+
 }
