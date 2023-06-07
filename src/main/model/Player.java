@@ -2,6 +2,12 @@ package main.model;
 
 import main.persistence.Writable;
 
+/**
+ * This class is used to represent a Player. It has coordinates in (x,y) and has a maze associated with it.
+ * It has different methods to update the position of the player according to user's input. It also has methods to
+ * convert the data into CSV format so that the data can be persisted.
+ */
+
 public class Player implements Writable {
     private Maze maze; // the game instance associated with the player
     private int x,y;
