@@ -16,6 +16,7 @@ To run the MazeEscaper game on your local machine, follow these steps:
 1. Clone the repository or download the source code files.
 2. Open the project in your preferred Java development environment.
 3. Build and run the `Main.java` file.
+4. Lastly, you can download the JAR file and run it directly. 
 
 ## Instructions
 
