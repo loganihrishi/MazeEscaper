@@ -8,12 +8,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class NewGameGUI extends JFrame implements KeyListener {
 
     private final int width = 800;
     private final int height = 600;
     private Player player;
+    private final String filePath = "data/data.csv";
+    private boolean shouldSave = false;
 
     public NewGameGUI() {
         init();
@@ -36,6 +43,13 @@ public class NewGameGUI extends JFrame implements KeyListener {
         this.setSize(new Dimension(width, height));
         addKeyListener(this);
         setFocusable(true);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                confirmSaveAndExit();
+            }
+        });
     }
 
     private void startGameLoop() {
@@ -88,14 +102,19 @@ public class NewGameGUI extends JFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_W) {
-            player.moveUp();
-        } else if (keyCode == KeyEvent.VK_S) {
-            player.moveDown();
-        } else if (keyCode == KeyEvent.VK_A) {
-            player.moveLeft();
-        } else if (keyCode == KeyEvent.VK_D) {
-            player.moveRight();
+        renderMaze();
+        if (player.hasWon()) {
+            JOptionPane.showMessageDialog(null, "You won!"); // Show win message
+        } else {
+            if (keyCode == KeyEvent.VK_W) {
+                player.moveUp();
+            } else if (keyCode == KeyEvent.VK_S) {
+                player.moveDown();
+            } else if (keyCode == KeyEvent.VK_A) {
+                player.moveLeft();
+            } else if (keyCode == KeyEvent.VK_D) {
+                player.moveRight();
+            }
         }
     }
 
@@ -103,4 +122,31 @@ public class NewGameGUI extends JFrame implements KeyListener {
     public void keyReleased(KeyEvent e) {
         // nothing to do here
     }
+
+
+    private void confirmSaveAndExit() {
+        int choice = JOptionPane.showConfirmDialog(this, "Do you want to save the game?", "Save Game",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (choice == JOptionPane.YES_OPTION) {
+            shouldSave = true;
+            saveGame();
+        }
+
+        System.exit(0);
+    }
+
+    private void saveGame() {
+        if (!shouldSave) {
+            return;
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            String csvData = player.toCSV();
+            writer.write(csvData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -32,6 +32,7 @@ public class Player implements Writable {
         }
 
         x++;
+
     }
 
     // REQUIRES: this maze has not won
@@ -47,6 +48,7 @@ public class Player implements Writable {
         }
 
         x--;
+
     }
 
     // REQUIRES: this maze has not won
@@ -61,6 +63,7 @@ public class Player implements Writable {
         }
 
         y++;
+
     }
 
     // REQUIRES: this maze has not won
@@ -74,6 +77,7 @@ public class Player implements Writable {
             return;
         }
         y--;
+
     }
 
 
