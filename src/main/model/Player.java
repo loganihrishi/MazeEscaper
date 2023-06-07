@@ -108,8 +108,4 @@ public class Player implements Writable {
         return result.toString();
     }
 
-    @Override
-    public Player fromCSVToPlayer(String filePath) {
-       return null;
-    }
 }
