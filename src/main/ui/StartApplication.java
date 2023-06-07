@@ -45,6 +45,7 @@ public class StartApplication extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+                new ExistingGame();
             }
         });
         result.add(LoadSavedGame);
