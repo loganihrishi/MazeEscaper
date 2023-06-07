@@ -20,6 +20,13 @@ public class Maze {
         init();
     }
 
+    // EFFECTS: creates a maze using an existing 2D array
+    public Maze(boolean[][] maze) {
+        this.maze = maze;
+        this.width = maze.length;
+        this.height = maze.length;
+    }
+
     private void init() {
         maze = new boolean[width][height];
         fillMaze();
