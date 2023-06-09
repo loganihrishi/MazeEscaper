@@ -29,7 +29,7 @@ public class Player implements Writable {
 
     // EFFECTS: returns true if the player has reached the end of the Maze
     public boolean hasWon() {
-        return x== maze.getWidth()-1 && y== maze.getHeight()-1;
+        return x== maze.getWidth()-2 && y== maze.getHeight()-2;
     }
 
     // REQUIRES: this maze has not won
