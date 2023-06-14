@@ -90,13 +90,13 @@ public abstract class GameGUI extends JFrame implements KeyListener {
         if (player.hasWon()) {
             JOptionPane.showMessageDialog(null, "You won!"); // Show win message
         } else {
-            if (keyCode == KeyEvent.VK_UP) {
+            if (keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_W) {
                 player.moveUp();
-            } else if (keyCode == KeyEvent.VK_DOWN) {
+            } else if (keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_S) {
                 player.moveDown();
-            } else if (keyCode == KeyEvent.VK_LEFT) {
+            } else if (keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_A) {
                 player.moveLeft();
-            } else if (keyCode == KeyEvent.VK_RIGHT) {
+            } else if (keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_D) {
                 player.moveRight();
             }
         }
