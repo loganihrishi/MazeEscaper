@@ -7,7 +7,7 @@ MazeEscaper is a Java application that allows users to play a maze escape game. 
 - **Randomly generated mazes:** The game generates a new maze each time a new game is started, providing a unique experience for each play session.
 - **User-friendly GUI:** The game interface provides intuitive controls and a visually appealing design, enhancing the overall gaming experience.
 - **Save and load functionality:** Players can save their progress during the game and load it later to continue from where they left off.
-- **Simple and engaging gameplay:** The game provides basic movement controls (W, A, S, D) to navigate the maze and find the exit.
+- **Simple and engaging gameplay:** The game provides basic movement controls (arrow keys) to navigate the maze and find the exit.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ To run the MazeEscaper game on your local machine, follow these steps:
 
 - Upon launching the game, you will be presented with the main menu screen.
 - Choose the "New Game" option to start a new game or select "Load Saved Game" to continue from a previously saved game.
-- In the game screen, use the keys (W, A, S, D) or on-screen buttons to navigate through the maze.
+- In the game screen, use the arrow keys or on-screen buttons to navigate through the maze.
 - The objective is to reach the exit point.
 - If you successfully reach the exit, you win the game!
 - To quit the game, close the game window.
