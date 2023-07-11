@@ -41,7 +41,7 @@ public abstract class GameGUI extends JFrame implements KeyListener {
             while (!player.hasWon()) {
                 renderMaze(); // Render the maze
                 try {
-                    Thread.sleep(100); // Delay between each iteration
+                    Thread.sleep(50); // Delay between each iteration
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

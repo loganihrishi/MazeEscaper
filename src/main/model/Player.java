@@ -109,18 +109,12 @@ public class Player implements Writable {
     @Override
     public String toCSV() {
         StringBuilder result = new StringBuilder();
-//        // Append the maze data to the CSV
-//        result.append("Maze,");
-//        result.append("\n");
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
                 result.append(maze.getPosition(i, j) ? "1," : "0,");
             }
         }
         result.append("\n");
-        // Append player position data to the CSV
-//        result.append("Player,");
-//        result.append("\n");
         result.append(x).append(",").append(y).append("\n");
 
         return result.toString();
