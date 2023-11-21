@@ -3,6 +3,9 @@ package main.ui;
 import main.Exceptions.IllegalDimensionException;
 import main.model.Maze;
 import main.model.Player;
+
+import java.util.Random;
+
 /**
  * This class is used to create a new Game.
  */
@@ -14,8 +17,13 @@ public class NewGameGUI extends GameGUI {
     }
 
     private void init() {
+
+        int[] difficulty = {50,60,70};
+        Random random = new Random();
+        int diff = difficulty[random.nextInt(difficulty.length)];
+
         try {
-            this.player = new Player(new Maze(50, 50));
+            this.player = new Player(new Maze(diff, diff));
         } catch (IllegalDimensionException e) {
             System.out.println("Dimensions are incorrect");
         }
