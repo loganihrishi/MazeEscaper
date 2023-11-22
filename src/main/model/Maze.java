@@ -48,6 +48,10 @@ public class Maze {
 
         // Start recursive backtracking from the top-left corner
         recursiveBacktracking(0, 0);
+        int lastX = width-1;
+        int lastY = height -1;
+        maze[lastX][lastY] = true;
+        maze[lastX-1][lastY] = true;
     }
 
     private void recursiveBacktracking(int row, int col) {
@@ -124,5 +128,4 @@ public class Maze {
     public boolean getPosition(int x, int y) {
         return maze[x][y];
     }
-
 }

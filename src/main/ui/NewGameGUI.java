@@ -20,10 +20,9 @@ public class NewGameGUI extends GameGUI {
 
         int[] difficulty = {50,60,70};
         Random random = new Random();
-        int diff = difficulty[random.nextInt(difficulty.length)];
-
+        int mazeLength = difficulty[random.nextInt(difficulty.length)];
         try {
-            this.player = new Player(new Maze(diff, diff));
+            this.player = new Player(new Maze(mazeLength, mazeLength));
         } catch (IllegalDimensionException e) {
             System.out.println("Dimensions are incorrect");
         }
